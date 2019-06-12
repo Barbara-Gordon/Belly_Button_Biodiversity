@@ -21,10 +21,12 @@ function buildCharts(sample) {
   //Bubble Plot
   d3.json(data_url).then(function(data) {
     var trace = {
-      x: data.otu_id,
+      x: data.otu_ids,
       y: data.sample_values,
+      text: data.otu_labels,
       mode: 'markers',
-      marker: { size: data.sample_values }
+      marker: { size: data.sample_values,
+                color: data.otu_ids }
     };
     var bubble_data = [trace];
  
